@@ -1,6 +1,6 @@
 # Usage
 
-Create a Docker volume with the generated keys.
+Create Docker volumes with the generated keys.
 
 ```
 docker run -it \
