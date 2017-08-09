@@ -3,7 +3,10 @@
 Create a Docker volume with the generated keys.
 
 ```
-docker run -it -v concourse-keys:/concourse-keys gangefors/concourse-keys
+docker run -it \
+    -v concourse-keys-web:/concourse-keys/web \
+    -v concourse-keys-worker:/concourse-keys/worker \
+    gangefors/concourse-keys
 ```
 
 Use this volume when launching concourse.
@@ -18,12 +21,12 @@ services:
   concourse-web:
     image: concourse/concourse
     command: web
-    volumes: ["concourse-keys:/concourse-keys"]
+    volumes: ["concourse-keys-web:/concourse-keys"]
 [...]
 
   concourse-worker:
     image: concourse/concourse
     command: worker
-    volumes: ["concourse-keys:/concourse-keys"]
+    volumes: ["concourse-keys-worker:/concourse-keys"]
 [...]
 ```
