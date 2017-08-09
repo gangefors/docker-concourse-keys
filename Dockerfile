@@ -1,9 +1,11 @@
 FROM alpine:latest
 
 RUN apk add --no-cache openssh-keygen
+
 RUN mkdir -p /concourse-keys/web /concourse-keys/worker
 WORKDIR /concourse-keys
-VOLUME /concourse-keys
+VOLUME /concourse-keys/web
+VOLUME /concourse-keys/worker
 
 CMD ssh-keygen -t rsa -f web/tsa_host_key -N '' \
     && ssh-keygen -t rsa -f web/session_signing_key -N '' \
