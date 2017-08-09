@@ -1,7 +1,4 @@
-# docker-concourse-keys
-A docker image that can generate Concourse web and worker keys
-
-## Usage
+# Usage
 
 Create a Docker volume with the generated keys.
 
